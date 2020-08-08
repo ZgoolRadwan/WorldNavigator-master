@@ -165,17 +165,21 @@ public class PlayerAction {
             }
             else
             {
-                server.getGameById(gameID).addPlayer(playerName,gameID);
-                //server.getGameById(gameID).addPlayer(playerName,gameID);
-                server.getGameById(gameID).getPlayerByName(playerName).setAllowedToPlayGame(true);
-                //server.getGameById(gameID).getPlayerByName(playerName).setAllowedToPlayGame(true);
-                server.getGameById(gameID).setGameActive(true);
+                 if( server.getGameById(gameID).getPlayerByName(playerName)!=null)
+                {
+                    action="create new game, you are not allowed to play in this game.";
+                }else{
+                    server.getGameById(gameID).addPlayer(playerName,gameID);
+                    //server.getGameById(gameID).addPlayer(playerName,gameID);
+                    server.getGameById(gameID).getPlayerByName(playerName).setAllowedToPlayGame(true);
+                    //server.getGameById(gameID).getPlayerByName(playerName).setAllowedToPlayGame(true);
+                    server.getGameById(gameID).setGameActive(true);
 
-                if(server.getGameById(gameID).getPlayers().size()==1){
-                    server.getGameById(gameID).stopGameAfterTime(8);
-                    server.getGameById(gameID).start();
-                }
-
+                    if(server.getGameById(gameID).getPlayers().size()==1){
+                        server.getGameById(gameID).stopGameAfterTime(8);
+                        server.getGameById(gameID).start();
+                    }
+                 }
                 numberOfPlayerInCurrenRoom=server.getGameById(gameID).getPlayerByName(playerName).getPlayerStatus().getCurrentRoom().getPlayersInRoom().size();
                 numberOfPlayers=server.getGameById(gameID).getPlayers().size();
                 action="";
