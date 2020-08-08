@@ -14,8 +14,6 @@ import java.util.Map;
 @SessionScoped
 @ManagedBean(name="player")
 public class PlayerAction {
-
-
     private final int ONE_MINUTE=60000;
     private int gameID;
     private String playerName;
@@ -390,6 +388,8 @@ public class PlayerAction {
     }
     public int getNumberOfGames()
     {
+        for(ConfigurationGame game:server.getGames())
+            selectedGameForPlayer.put(game.getGameId(),game.getGameId());
         return server.getGames().size();
     }
     public boolean isPlayerAllowedToPlay()
