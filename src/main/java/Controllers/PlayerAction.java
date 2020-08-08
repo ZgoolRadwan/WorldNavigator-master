@@ -165,6 +165,10 @@ public class PlayerAction {
             }
             else
             {
+                if( server.getGameById(gameID).getPlayerByName(playerName)!=null)
+                {
+                    action="create new game, you are not allowed to play in this game.";
+                }else{
                 server.getGameById(gameID).addPlayer(playerName,gameID);
                 //server.getGameById(gameID).addPlayer(playerName,gameID);
                 server.getGameById(gameID).getPlayerByName(playerName).setAllowedToPlayGame(true);
@@ -174,6 +178,8 @@ public class PlayerAction {
                 if(server.getGameById(gameID).getPlayers().size()==1){
                     server.getGameById(gameID).stopGameAfterTime(8);
                     server.getGameById(gameID).start();
+                }
+
                 }
 
                 numberOfPlayerInCurrenRoom=server.getGameById(gameID).getPlayerByName(playerName).getPlayerStatus().getCurrentRoom().getPlayersInRoom().size();
@@ -469,10 +475,16 @@ public class PlayerAction {
     public String saveNewGame()
     {
         selectedGameForPlayer=new LinkedHashMap<>();
+        if(server.getGameById(newGameId)==null){
         server.addGame(newGameId,minutesToStartGameAfter);
         for(ConfigurationGame game:server.getGames())
             selectedGameForPlayer.put(game.getGameId(),game.getGameId());
-        return "setup_game.xhtml";
+            return "setup_game.xhtml";
+        }else
+            for(ConfigurationGame game:server.getGames())
+                selectedGameForPlayer.put(game.getGameId(),game.getGameId());
+            action="This game already exist.";
+        return "add_new_game.xhtml";
     }
     public int getNumberOfGames()
     {
