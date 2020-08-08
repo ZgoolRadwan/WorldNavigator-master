@@ -31,7 +31,7 @@
     <h:form style="text-align: center" rendered="#{! (player.isPlayerAllowedToPlay())}" >
         <h1><h:outputLabel value="You Lost!"/></h1>
     
-        <h:commandButton value="Start new game" action="setup_game"/>
+        <h:commandButton value="Start new game" action="setup_game" styleClass="btn_blue"/>
     
     </h:form>
 <h:form style="text-align: center" rendered="#{player.renderGameForm()}" styleClass="form">
