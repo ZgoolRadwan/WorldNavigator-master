@@ -117,6 +117,14 @@
             <version>2.2.11</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.glassfish/javax.faces -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+
 
         <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
 
@@ -248,32 +256,5 @@
             </plugins>
         </pluginManagement>
     </build>
-    <dependencyManagement>
-        <dependencies>
-
-            <dependency>
-                <groupId>org.hamcrest</groupId>
-                <artifactId>hamcrest-core</artifactId>
-                <version>1.2.1</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hamcrest</groupId>
-                <artifactId>hamcrest-library</artifactId>
-                <version>1.2.1</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>1.8.5</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-
 
 </project>
