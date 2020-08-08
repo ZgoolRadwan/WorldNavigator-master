@@ -2,7 +2,6 @@ package com.company.Configuration;
 
 import JAXB.POJOClases.Map;
 import JAXB.WallFactoryPojo;
-import JAXB.XmlToObject;
 import com.company.Enumerations.Direction;
 import com.company.Items.Flash;
 import com.company.Items.GameItem;
@@ -17,10 +16,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
 
 
 public class ConfigurationGame extends Thread{
@@ -165,7 +162,12 @@ public class ConfigurationGame extends Thread{
   public Map getMapFromXml() {
 
     try {
-      File file = new File("C:\\Users\\User\\Documents\\PracticeMVC\\web\\resources\\ma.xml");
+
+     // String path = Thread.currentThread().getContextClassLoader().getResource("ma.xml").getPath();
+      System.out.println();
+      String path = this.getClass().getClassLoader().getResource("").getPath();
+
+      File file=new File(path+"ma.xml");
       JAXBContext jaxbContext = JAXBContext.newInstance(Map.class);
 
       Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
