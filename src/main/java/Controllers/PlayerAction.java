@@ -21,19 +21,20 @@ public class PlayerAction {
 
     private final int ONE_MINUTE=60000;
     private int gameID;
-    private int mapId;
-    private int numberOfPlayers;
     private String playerName;
     private String action;
     private boolean isFacingWallHasLock;
-    private int selectedGameID;
     private int numberOfPlayerInCurrenRoom;
     private boolean isFightModeActive;
     private String fightResult;
     private int newGameId;
-    private ArrayList<Integer>gameList;
     private int minutesToStartGameAfter;
     private int gameIdToRemove;
+    private boolean tradeModeStarted;
+    private Map<String,String>itemListForSeller;
+    private Map<Integer,Integer>selectedGameForPlayer;
+    private String selectedItem;
+
 
     public int getGameIdToRemove() {
         return gameIdToRemove;
@@ -56,14 +57,6 @@ public class PlayerAction {
         return isFightModeActive;
     }
 
-    public ArrayList<Integer> getGameList() {
-        return gameList;
-    }
-
-    public void setGameList(ArrayList<Integer> gameList) {
-        this.gameList = gameList;
-    }
-
     public void setFightModeActive(boolean fightModeActive) {
         isFightModeActive = fightModeActive;
     }
@@ -84,30 +77,12 @@ public class PlayerAction {
         this.newGameId = newGameId;
     }
 
-    public boolean isFacingWallHasLock() {
-
-        return isFacingWallHasLock;
-    }
-
     public int getNumberOfPlayerInCurrenRoom() {
         return numberOfPlayerInCurrenRoom;
     }
 
     public void setNumberOfPlayerInCurrenRoom(int numberOfPlayerInCurrenRoom) {
         this.numberOfPlayerInCurrenRoom = numberOfPlayerInCurrenRoom;
-    }
-
-    public void setFacingWallHasLock(boolean facingWallHasLock) {
-        isFacingWallHasLock = facingWallHasLock;
-    }
-
-
-    public int getMapId() {
-        return mapId;
-    }
-
-    public void setMapId(int mapId) {
-        this.mapId = mapId;
     }
 
     public String getAction() {
@@ -125,9 +100,6 @@ public class PlayerAction {
     public void setGameID(int gameID) {
         this.gameID = gameID;
     }
-
-
-
 
     public String getPlayerName() {
         return playerName;
@@ -181,9 +153,7 @@ public class PlayerAction {
                 }
 
                 }
-
                 numberOfPlayerInCurrenRoom=server.getGameById(gameID).getPlayerByName(playerName).getPlayerStatus().getCurrentRoom().getPlayersInRoom().size();
-                numberOfPlayers=server.getGameById(gameID).getPlayers().size();
                 action="";
                 return "game_space.xhtml";
                 }
@@ -205,13 +175,6 @@ public class PlayerAction {
         return isFacingWallHasLock;
     }
 
-    public int getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public void setNumberOfPlayers(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
-    }
 
     public void lock()
     {
@@ -220,15 +183,7 @@ public class PlayerAction {
         }
     }
 
-    public boolean checkIfGameHasPlayer()
-    {
-        if(isGameActive())
-        {
-            if(server.getGameById(gameID).getPlayers().size()>0)
-                return true;
-        }
-        return false;
-    }
+
     public void Left()
     {
         if(isGameActive()) {
@@ -256,10 +211,6 @@ public class PlayerAction {
             }else
                 action=res;
         }
-        /*if(action.equals("fight"))
-            isFightModeActive=true;
-        else
-            isFightModeActive=false;*/
     }
 
     public void scissor()
@@ -311,19 +262,6 @@ public class PlayerAction {
         }
     }
 
-
-
-    /*****/
-    /*
-     *
-     * */
-    /*Trade mode*/
-
-    private boolean tradeModeStarted;
-    private Map<String,String>itemListForSeller;
-    private Map<Integer,Integer>selectedGameForPlayer;
-    private String selectedItem;
-
     public Map<Integer, Integer> getSelectedGameForPlayer() {
         return selectedGameForPlayer;
     }
@@ -359,8 +297,6 @@ public class PlayerAction {
 
     }
 
-
-
     public void StartTrade()
     {
         if(isGameActive()) {
@@ -383,7 +319,6 @@ public class PlayerAction {
          tradeModeStarted=false;
          action="You got out of trade mode.";
         }
-        // action= server.getGames().get(indexOfGame).getPlayerByName(playerName).getPlayerCommand().startTrade();
     }
     public void SellItem()
     {if(isGameActive()) {
@@ -432,39 +367,9 @@ public class PlayerAction {
                 else
                     key = "open";
                 action = server.getGameById(gameID).getPlayerByName(playerName).getPlayerCommand().usingKey(key);
-                //action="Lock key:"+keyForFacingLock;
-
             }
         }
 
-    }
-
-   /* public ArrayList<String> getGamesList()
-    {
-
-        ArrayList<String>arrayList=new ArrayList<>();
-        for (MazePlayer player:server.getGames().get(0).getPlayers())
-            arrayList.add(String.valueOf(player.getPlayerName()));
-        return arrayList;
-    }*/
-
-
-    public int getGameByID(int id)
-    {
-        for(int i=0;i<server.getGames().size();i++)
-            if(server.getGames().get(i).getGameId()==id)
-                return i;
-            return -1;
-    }
-
-
-    public int getSelectedGameID() {
-
-        return selectedGameID;
-    }
-
-    public void setSelectedGameID(int selectedGameID) {
-        this.selectedGameID = selectedGameID;
     }
 
     public String addNewGame()
@@ -527,11 +432,6 @@ public class PlayerAction {
     public boolean isGameActive()
     {
         return server.getGameById(gameID).isGameActive();
-    }
-
-    public boolean isPlayingTimeCorrect()
-    {
-        return (System.currentTimeMillis()>=server.getGameById(gameID).getStartGameAtTime() && System.currentTimeMillis()<=server.getGameById(gameID).getStartGameAtTime()+ONE_MINUTE);
     }
 
     public boolean isPlayerTryToPlayAfterGameStartedPlusOneMinute()
