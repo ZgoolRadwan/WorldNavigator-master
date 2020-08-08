@@ -564,6 +564,8 @@ public class PlayerAction {
             }else
                 action="Can't remove this game.";
         }
+        for(ConfigurationGame game:server.getGames())
+            selectedGameForPlayer.put(game.getGameId(),game.getGameId());
         return "setup_game.xhtml";
     }
     public String removeGamePage()
