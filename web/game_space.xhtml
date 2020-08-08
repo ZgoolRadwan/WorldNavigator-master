@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <h:outputStylesheet name="css/style.css" />
+</h:head>
+<div style="text-align: center">
+    <h3><h:outputLabel value="#{player.action}" style="color: red;text-align:center"/></h3>
+    <br></br>
+    <h4><h:outputLabel value="Player name: #{player.playerName}" style="color: red;text-align: center"/></h4>
+
+    <h4><h:outputLabel value="Current room id: #{player.currentRoomID()}" style="color: red;text-align: center"/></h4>
+
+    <h4><h:outputLabel value="Number of players in room: #{player.numberOfPlayerInCurrenRoom}" style="color: red;text-align: center"/></h4>
+
+
+</div>
+<h:body styleClass="body">
+
+
+        <h:form style="text-align: center" rendered="#{!(player.isGameActive())}" styleClass="form" >
+            <h1><h:outputLabel value="The game it's not active" styleClass="label"/></h1>
+            <h:commandButton value="Start new game" styleClass="btn_blue" action="setup_game"/>
+        </h:form>
+
+    <h:form style="text-align: center" rendered="#{player.isGameActive()}" styleClass="form">
+
+        <br></br>
+
+    <h:form style="text-align: center" rendered="#{! (player.isPlayerAllowedToPlay())}" >
+        <h1><h:outputLabel value="You Lost!"/></h1>
+    
+        <h:commandButton value="Start new game" action="setup_game"/>
+    
+    </h:form>
+<h:form style="text-align: center" rendered="#{player.renderGameForm()}" styleClass="form">
+
+    <h:commandButton value="Left" action="#{player.Left()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Forward" action="#{player.Forward()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Backward" action="#{player.Backward()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Right" action="#{player.Right()}" type="submit" styleClass="btn_blue" />
+    <br></br>
+    <br></br>
+    <h:commandButton value="Lock" action="#{player.lock()}" type="submit"  styleClass="btn_blue" />
+    <h:commandButton value="Check" action="#{player.Check()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Open Door" action="#{player.OpenDoor()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Start Trade" action="#{player.StartTrade()}"  update="TradeMode" type="submit" styleClass="btn_blue" />
+    <br></br>
+    <br></br>
+    <h:commandButton value="Use Switch Light" action="#{player.UseSwitchLight()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Print Player Status" action="#{player.PrintPlayerStatus()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Using Key" action="#{player.UsingKey()}" type="submit" styleClass="btn_blue" />
+    <h:commandButton value="Check Roof" action="#{player.CheckRoof()}" type="submit" styleClass="btn_blue" />
+    <br></br>
+    <br></br>
+    <h:commandButton value="Quit game" action="#{player.Quit()}" type="submit" styleClass="cancel_btn" />
+
+    </h:form>
+        <h:form style="text-align: center" rendered="#{player.tradeModeStarted}" id="TradeMode" styleClass="form">
+            <h:selectOneMenu value="#{player.selectedItem}" style="width: 500px" styleClass="dropdownlist">
+                <f:selectItems value="#{player.itemListForSeller}"></f:selectItems>
+            </h:selectOneMenu>
+
+            <h:commandButton value="Buy" action="#{player.BuyItem()}" type="submit" styleClass="btn_blue" />
+            <h:commandButton value="Sell" action="#{player.SellItem()}" type="submit" styleClass="btn_blue" />
+            <h:commandButton value="Finish" action="#{player.FinishTrade()}" type="submit" styleClass="cancel_btn" />
+
+        </h:form>
+
+        <h:form style="text-align: center" rendered="#{player.fightModeActive}" id="FightMode" styleClass="form">
+
+            <h:commandButton value="Rock" action="#{player.rock()}" type="submit" styleClass="btn_blue" />
+            <h:commandButton value="Paper" action="#{player.paper()}" type="submit" styleClass="btn_blue" />
+            <h:commandButton value="Scissor" action="#{player.scissor()}" type="submit" styleClass="btn_blue" />
+            <br></br>
+            <h:commandButton value="Fight" action="#{player.fight()}" type="submit" styleClass="cancel_btn" />
+            <h3><h:outputLabel value="#{player.fightResult}" style="color: red"/></h3>
+
+        </h:form>
+        <br></br>
+
+</h:form>
+</h:body>
+</html>

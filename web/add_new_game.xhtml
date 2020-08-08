@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <h:outputStylesheet name="css/style.css" />
+
+</h:head>
+
+<h:body styleClass="body">
+<h:form style="text-align: center" styleClass="form">
+   <h2> <h:outputLabel value="Create new game" styleClass="label"/></h2>
+    <h:outputLabel value="Enter game id" styleClass="label"/>
+    <h:inputText value="#{player.newGameId}" styleClass="search_box" />
+    <br></br>
+    <h:outputLabel value="Start game after few minutes" styleClass="label"/>
+    <h:inputText value="#{player.minutesToStartGameAfter}" styleClass="search_box" />
+<br></br>
+    <h:commandButton value="Save" action="#{player.saveNewGame()}" styleClass="btn_blue" type="submit" />
+    <h:commandButton value="Cancel" action="setup_game" styleClass="cancel_btn" type="submit" />
+    <br></br>
+</h:form>
+
+</h:body>
+
+
+
+
+</html>

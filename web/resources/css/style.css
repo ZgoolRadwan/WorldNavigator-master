@@ -1,0 +1,106 @@
+﻿
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /*#edf9fa*/
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    color: white;
+}
+
+body input {
+    
+    color: black;
+}
+
+.btn_blue {
+    text-decoration: none;
+    background: #03a9f4;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 7px 7px;
+    cursor: pointer;
+    border-radius: 7px;
+    margin:8px;
+}
+
+.btn_green {
+    text-decoration: none;
+    background: #07e30e;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 7px 7px;
+    cursor: pointer;
+    border-radius: 7px;
+    margin:2px;
+}
+
+.cancel_btn {
+    text-decoration: none;
+    background: red;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-top: 20px;
+}
+
+
+
+.form {
+    text-align: center;
+    margin: 30px;
+    background: rgba(0,0,0,0.8);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding-bottom: 5px;
+    padding-left: 20px;
+    width: 60%;
+    height:auto;
+    border-radius: 10px;
+}
+
+
+    .inputBox {
+        outline: none;
+        border:none;
+        border-bottom:1px solid white;
+        width:90%;
+        padding:7px;
+        margin:7px;
+        background-color:transparent;
+        color:white;
+    }
+
+  .dropdownlist {
+      color:black;
+        width: 60px;
+        padding: 7px;
+      margin: 6px 8px 8px 8px;
+      background-color: #edf2f7;
+        font-size: 16px;
+        border-radius:7px;
+    }
+
+.label {
+    margin: 10px;
+    color:white;
+}
+.search_box {
+    padding:4px;
+    width:100px;
+    height:20px;
+    border-radius:8px;
+    margin: 8px;
+    color: black;
+    background-color: white;
+}
+

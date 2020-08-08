@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PracticeMVC:war exploded">
+    <output-path>$PROJECT_DIR$/web</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>PracticeMVC</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PracticeMVC" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.persistence:javax.persistence-api:2.2" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.1.3" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.3.2" />
+          <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.2.5" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.11" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="PracticeMVC/web/Web" />
+    </root>
+  </artifact>
+</component>

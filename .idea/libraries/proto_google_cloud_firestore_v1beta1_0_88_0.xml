@@ -1,0 +1,28 @@
+<component name="libraryTable">
+  <library name="proto-google-cloud-firestore-v1beta1-0.88.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/proto-google-cloud-firestore-v1beta1-0.88.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/proto-google-iam-v1-0.13.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/protobuf-java-util-3.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opencensus-api-0.24.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/protobuf-java-3.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/threetenbp-1.4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opencensus-contrib-http-util-0.24.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/proto-google-common-protos-1.18.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/perfmark-api-0.19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/proto-google-cloud-firestore-v1-1.35.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/proto-google-cloud-firestore-admin-v1-1.35.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-resolver-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-common-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-codec-http-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-codec-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-buffer-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-handler-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-transport-4.1.50.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/opencensus-contrib-grpc-util-0.24.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

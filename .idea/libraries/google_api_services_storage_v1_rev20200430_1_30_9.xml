@@ -1,0 +1,31 @@
+<component name="libraryTable">
+  <library name="google-api-services-storage-v1-rev20200430-1.30.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/google-api-services-storage-v1-rev20200430-1.30.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-auth-library-credentials-0.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-auth-library-oauth2-http-0.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-core-1.93.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-core-grpc-1.93.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-core-http-1.93.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-firestore-1.35.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-cloud-storage-1.110.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-1.35.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-appengine-1.35.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-gson-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-gson-1.36.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jackson2-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-http-client-jackson2-1.36.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-1.21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/google-oauth-client-1.31.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-alts-1.30.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-api-1.30.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-auth-1.30.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-context-1.30.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-core-1.30.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/grpc-grpclb-1.30.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
