@@ -16,16 +16,4 @@ public class MirrorWall extends GeneralWall {
     objectInWall=mirror;
   }
 
-
-
-
-
-//  @Override
-//  public String toString() {
-//    return "WallwithMirror{" +
-//            "mirrorPassword='" + mirrorPassword + '\'' +
-//            ", isKeyHidden=" + isKeyHidden +
-//            ", keyBehindMirror='" + keyBehindMirror + '\'' +
-//            '}';
-//  }
 }

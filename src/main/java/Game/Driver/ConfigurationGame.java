@@ -11,13 +11,11 @@ import Game.Driver.Player.MazePlayer;
 import ConfigurationMapFromXmlFile.POJOClases.Map;
 import ConfigurationMapFromXmlFile.WallFactory;
 import Game.Driver.WallObjects.Door;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.ArrayList;
-
 
 public class ConfigurationGame extends Thread{
 
@@ -29,7 +27,6 @@ public class ConfigurationGame extends Thread{
   private ArrayList<MazePlayer>players;
   private ArrayList<Room>gameRooms;
   private long startGameAtTime;
-
   public int getGameId() {
     return gameId;
   }
@@ -140,19 +137,15 @@ public class ConfigurationGame extends Thread{
     return this.endTime;
   }
 
+
   public Map getMapFromXml() {
 
     try {
-
-      System.out.println();
       String path = this.getClass().getClassLoader().getResource("").getPath();
-
       File file=new File(path+"ma.xml");
       JAXBContext jaxbContext = JAXBContext.newInstance(Map.class);
-
       Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
       Map map= (Map) jaxbUnmarshaller.unmarshal(file);
-
       return map;
     } catch (JAXBException e) {
       e.printStackTrace();
@@ -164,11 +157,7 @@ public class ConfigurationGame extends Thread{
     for(int i=0;i<getMapFromXml().getRooms().size();i++)
     {
       Room roomObject=new Room();
-      int roomID = getMapFromXml().getRooms().get(i).getId();
-      String hasLight = getMapFromXml().getRooms().get(i).getContainLight();
-      String isDark = getMapFromXml().getRooms().get(i).getDark();
-      String isMaze = getMapFromXml().getRooms().get(i).getMaze();
-      roomObject.setRoomId(roomID);
+      setRoomAccessories(roomObject,getMapFromXml().getRooms().get(i));
       for(int j=0;j<getMapFromXml().getRooms().get(i).getWalls().size();j++)
       {
         try {
@@ -184,10 +173,7 @@ public class ConfigurationGame extends Thread{
           throw new NullPointerException("GeneralWall <type> tag missed in XML file.");
         }
       }
-      if (hasLight.equals("yes")) roomObject.addSwitchLight();
-      if (isDark.equals("yes")) roomObject.setRoomDark();
-      else if (isDark.equals("no")) roomObject.setRoomLit();
-      if (isMaze.equals("yes")) roomObject.setRoom_MazeRoom();
+
       this.gameRooms.add(roomObject);
     }
   }
@@ -239,7 +225,6 @@ public class ConfigurationGame extends Thread{
       wallHasDoor.setObjectType(door);
       return wallHasDoor;
     }
-//       return new WallHasDoor.DoorBuilder(nextRoom).setDoorKey(doorKey).build();
     else  throw new NullPointerException("Next room it's not exist in XML file.");
 
   }
@@ -292,14 +277,11 @@ public class ConfigurationGame extends Thread{
             WallHasDoor door = createDoor(wall);
             setWallsByDirection(wallDirection, getRoomById(roomID), door);
           }
-
         } catch (NullPointerException e) {
           System.out.println("Can't create Doors");
         }
       }
-
     }
-
   }
 
 
