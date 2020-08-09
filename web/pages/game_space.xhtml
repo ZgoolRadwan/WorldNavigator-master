@@ -9,24 +9,28 @@
     <h:outputStylesheet name="css/style.css" />
 </h:head>
 <div style="text-align: center">
-    <h3><h:outputLabel value="#{player.messageToPlayer}" style="color: red;text-align:center"/></h3>
-    <br></br>
-    <h4><h:outputLabel value="Player name: #{player.playerName}" style="color: red;text-align: center"/></h4>
-
-    <h4><h:outputLabel value="Current room id: #{player.currentRoomID()}" style="color: red;text-align: center"/></h4>
 
 </div>
 <h:body styleClass="body">
 
-
+    <div class="header">
+        <h:graphicImage value="../resources/logo.png" styleClass=""/>
+    </div>
         <h:form style="text-align: center" rendered="#{!(player.isGameActive())}" styleClass="form" >
             <h1><h:outputLabel value="The game it's not active" styleClass="label"/></h1>
             <h:commandButton value="Start new game" styleClass="btn_blue" action="setup_game"/>
         </h:form>
 
-    <h:form style="text-align: center" rendered="#{player.isGameActive()}" styleClass="form">
-
+    <div class="form">
+        <h4><h:outputLabel value="#{player.messageToPlayer}" style="color: white;text-align:center"/></h4>
+        <h4><h:outputLabel value="Name: #{player.playerName}" style="color: white;float: left;"/></h4>
         <br></br>
+        <h4><h:outputLabel value="Room: #{player.currentRoomID()}" style="color: white;float:left;"/></h4>
+        <br></br>
+
+    <h:form style="text-align: center" rendered="#{player.isGameActive()}">
+
+
 
     <h:form style="text-align: center" rendered="#{! (player.isPlayerAllowedToPlay())}" >
         <h1><h:outputLabel value="You Lost!"/></h1>
@@ -34,7 +38,7 @@
         <h:commandButton value="Start new game" action="setup_game" styleClass="btn_blue"/>
     
     </h:form>
-<h:form style="text-align: center" rendered="#{player.renderGameForm()}" styleClass="form">
+<h:form style="text-align: center" rendered="#{player.renderGameForm()}">
 
     <h:commandButton value="Left" action="#{player.Left()}" type="submit" styleClass="btn_blue" />
     <h:commandButton value="Forward" action="#{player.Forward()}" type="submit" styleClass="btn_blue" />
@@ -57,7 +61,7 @@
     <h:commandButton value="Quit game" action="#{player.Quit()}" type="submit" styleClass="cancel_btn" />
 
     </h:form>
-        <h:form style="text-align: center" rendered="#{player.tradeModeStarted}" id="TradeMode" styleClass="form">
+        <h:form style="text-align: center" rendered="#{player.tradeModeStarted}" id="TradeMode">
             <h:selectOneMenu value="#{player.selectedItem}" style="width: 500px" styleClass="dropdownlist">
                 <f:selectItems value="#{player.itemListForSeller}"></f:selectItems>
             </h:selectOneMenu>
@@ -68,7 +72,7 @@
 
         </h:form>
 
-        <h:form style="text-align: center" rendered="#{player.fightModeActive}" id="FightMode" styleClass="form">
+        <h:form style="text-align: center" rendered="#{player.fightModeActive}" id="FightMode">
 
             <h:commandButton value="Rock" action="#{player.rock()}" type="submit" styleClass="btn_blue" />
             <h:commandButton value="Paper" action="#{player.paper()}" type="submit" styleClass="btn_blue" />
@@ -81,5 +85,6 @@
         <br></br>
 
 </h:form>
+    </div>
 </h:body>
 </html>

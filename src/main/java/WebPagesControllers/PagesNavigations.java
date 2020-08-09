@@ -19,6 +19,8 @@ public class PagesNavigations {
 
     public String goToAddNewGame()
     {
+
+        messageToPlayer="";
         return "/pages/add_new_game.xhtml?faces-redirect = true";
     }
 

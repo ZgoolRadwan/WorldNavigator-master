@@ -12,28 +12,32 @@
 
 <h:body styleClass="body" >
 
+
+    <div class="header">
+        <h:graphicImage value="../resources/logo.png" styleClass=""/>
+    </div>
     <div style="text-align: center;color: red" >
-        <br></br>
-        <h3><h:outputLabel value="#{player.messageToPlayer}" style="color: red;text-align:center"/></h3>
-        <h3><h:outputLabel value="#{navigations.messageToPlayer}" style="color: red;text-align:center"/></h3>
-        <br></br>
-       <h3><h:outputLabel value="Number of games: #{player.getNumberOfGames()}"></h:outputLabel></h3>
+
     </div>
     <h:form styleClass="form" id="myForm">
-        <br></br><br></br>
-        <h:outputLabel value="Game id:"/>
+        <h3><h:outputLabel value="#{player.messageToPlayer}" style="color: red;text-align:center"/></h3>
+        <h3><h:outputLabel value="#{navigations.messageToPlayer}" style="color: red;text-align:center"/></h3>
+        <h3><h:outputLabel value="The number of current games: #{player.getNumberOfGames()}"></h:outputLabel></h3>
+        <br></br>
+        <br></br>
+        <h:outputLabel value="Select game id:" />
         <h:selectOneMenu value="#{player.selectedGameID}" styleClass="dropdownlist">
             <f:selectItems value="#{player.gamesList}"/>
         </h:selectOneMenu>
-        <h:outputLabel for="player_Name" value="Player Name"/>
+        <h:outputLabel for="player_Name" value="Enter player Name:" styleClass="label"/>
         <h:inputText value="#{player.playerName}" styleClass="search_box" id="player_Name"/>
+        <h:commandButton value="Play" action="#{player.play()}" type="submit" styleClass="btn_green"/>
         <br></br>
         <div style="text-align: center">
-        <h:commandButton value="Play" action="#{player.play()}" type="submit" styleClass="btn_green"/>
+
         <h:commandButton value="Create new game" action="#{navigations.goToAddNewGame}" type="submit" styleClass="btn_blue" />
             <h:commandButton value="Clear games" action="#{navigations.goToClearGame}" type="submit" styleClass="cancel_btn" />
         </div>
-        <br></br><br></br>
     </h:form>
 
 </h:body>
