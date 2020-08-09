@@ -13,7 +13,7 @@
         <br></br><br></br>
         <h:outputLabel value="Game id:"/>
         <h:selectOneMenu value="#{player.gameIdToRemove}" styleClass="dropdownlist">
-            <f:selectItems value="#{player.selectedGameForPlayer}"/>
+            <f:selectItems value="#{player.gamesList}"/>
         </h:selectOneMenu>
         <h:commandButton value="Clear" action="#{player.removeOneGame()}" styleClass="cancel_btn" type="submit" />
         <h:commandButton value="Cancel" action="setup_game" styleClass="btn_blue" type="submit" />

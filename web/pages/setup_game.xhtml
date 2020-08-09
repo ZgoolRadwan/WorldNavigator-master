@@ -14,23 +14,24 @@
 
     <div style="text-align: center;color: red" >
         <br></br>
-        <h3><h:outputLabel value="#{player.action}" style="color: red;text-align:center"/></h3>
+        <h3><h:outputLabel value="#{player.messageToPlayer}" style="color: red;text-align:center"/></h3>
+        <h3><h:outputLabel value="#{navigations.messageToPlayer}" style="color: red;text-align:center"/></h3>
         <br></br>
        <h3><h:outputLabel value="Number of games: #{player.getNumberOfGames()}"></h:outputLabel></h3>
     </div>
     <h:form styleClass="form" id="myForm">
         <br></br><br></br>
         <h:outputLabel value="Game id:"/>
-        <h:selectOneMenu value="#{player.gameID}" styleClass="dropdownlist">
-            <f:selectItems value="#{player.selectedGameForPlayer}"/>
+        <h:selectOneMenu value="#{player.selectedGameID}" styleClass="dropdownlist">
+            <f:selectItems value="#{player.gamesList}"/>
         </h:selectOneMenu>
         <h:outputLabel for="player_Name" value="Player Name"/>
         <h:inputText value="#{player.playerName}" styleClass="search_box" id="player_Name"/>
         <br></br>
         <div style="text-align: center">
         <h:commandButton value="Play" action="#{player.play()}" type="submit" styleClass="btn_green"/>
-        <h:commandButton value="Create new game" action="#{player.addNewGame}" type="submit" styleClass="btn_blue" />
-            <h:commandButton value="Clear games" action="#{player.removeGamePage()}" type="submit" styleClass="cancel_btn" />
+        <h:commandButton value="Create new game" action="#{navigations.goToAddNewGame}" type="submit" styleClass="btn_blue" />
+            <h:commandButton value="Clear games" action="#{navigations.goToClearGame}" type="submit" styleClass="cancel_btn" />
         </div>
         <br></br><br></br>
     </h:form>

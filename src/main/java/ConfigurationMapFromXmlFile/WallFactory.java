@@ -1,13 +1,13 @@
 package ConfigurationMapFromXmlFile;
 
+import ConfigurationGame.Map.Walls.*;
 import Constants.ItemType;
-import Game.Driver.PlayerItems.GeneralItem;
-import Game.Driver.PlayerItems.Key;
-import Game.Driver.Map.Walls.*;
-import Game.Driver.WallObjects.Chest;
-import Game.Driver.WallObjects.Mirror;
-import Game.Driver.WallObjects.Painting;
-import Game.Driver.WallObjects.Seller;
+import ConfigurationGame.PlayerItems.GeneralItem;
+import ConfigurationGame.PlayerItems.Key;
+import ConfigurationGame.WallObjects.Chest;
+import ConfigurationGame.WallObjects.Mirror;
+import ConfigurationGame.WallObjects.Painting;
+import ConfigurationGame.WallObjects.Seller;
 
 import java.util.ArrayList;
 
