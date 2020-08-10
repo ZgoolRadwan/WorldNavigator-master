@@ -4,7 +4,6 @@ package WebPagesControllers;
 import ConfigurationGame.GamesDriver;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="navigations")
 public class PagesNavigations {
